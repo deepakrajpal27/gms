@@ -1,4 +1,4 @@
-# Grocery Management System (GMS) Frontend
+# Grocery Management System (GMS)
 
 A modern, responsive web application for managing grocery inventory, categories, and orders. Built with React, TypeScript, Material UI, and a clean, scalable architecture.
 
@@ -48,7 +48,7 @@ gms-frontend/
 
 1. **Clone the repository:**
    ```sh
-   git clone <your-repo-url>
+   git clone https://github.com/deepakrajpal27/gms.git
    cd gms-frontend
    ```
 2. **Install dependencies:**
