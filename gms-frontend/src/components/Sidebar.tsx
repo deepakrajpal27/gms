@@ -13,8 +13,6 @@ import {
 } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import InventoryIcon from '@mui/icons-material/Inventory';
-import CategoryIcon from '@mui/icons-material/Category';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -29,8 +27,6 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { path: '/inventory', label: 'Inventory', icon: <InventoryIcon /> },
-//   { path: '/categories', label: 'Categories', icon: <CategoryIcon /> },
-//   { path: '/orders', label: 'Orders', icon: <ShoppingCartIcon /> },
 ];
 
 interface SidebarProps {
