@@ -59,7 +59,7 @@ gms-frontend/
    - Create a `.env` file in the root of `gms-frontend/` (optional)
    - Example:
      ```env
-     REACT_APP_API_BASE_URL=http://localhost:5000/api
+     REACT_APP_API_BASE_URL=http://localhost:8080/api
      ```
 
 ### Running the App
