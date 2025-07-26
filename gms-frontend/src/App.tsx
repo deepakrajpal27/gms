@@ -16,6 +16,7 @@ import Orders from './pages/Orders';
 import Sidebar, { DRAWER_WIDTH, COLLAPSED_DRAWER_WIDTH } from './components/Sidebar';
 import CartIcon from './components/CartIcon';
 import { CartProvider } from './context/CartContext';
+import { NotificationProvider } from './context/NotificationContext';
 import './styles/App.css';
 import Cart from './pages/Cart';
 
@@ -61,60 +62,62 @@ const App: React.FC<AppProps> = ({ title = 'Grocery Management System' }) => {
   const currentWidth = sidebarExpanded ? DRAWER_WIDTH : COLLAPSED_DRAWER_WIDTH;
   console.log(`Current sidebar width: ${currentWidth}px`);
   return (
-    <CartProvider>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <BrowserRouter>
-          <Box className="app-container">
-            <AppBar 
-              position="fixed" 
-              className="app-bar"
-              sx={{ 
-                width: { sm: `calc(100% - ${currentWidth}px)` },
-                ml: { sm: `${currentWidth}px` },
-              }}
-            >
-              <Toolbar className="app-toolbar">
-                <IconButton
-                  color="inherit"
-                  edge="start"
-                  onClick={handleDrawerToggle}
-                  sx={{ mr: 2, display: { sm: 'none' } }}
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-                  {title}
-                </Typography>
-                <CartIcon />
-              </Toolbar>
-            </AppBar>
+    <NotificationProvider>
+      <CartProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <BrowserRouter>
+            <Box className="app-container">
+              <AppBar 
+                position="fixed" 
+                className="app-bar"
+                sx={{ 
+                  width: { sm: `calc(100% - ${currentWidth}px)` },
+                  ml: { sm: `${currentWidth}px` },
+                }}
+              >
+                <Toolbar className="app-toolbar">
+                  <IconButton
+                    color="inherit"
+                    edge="start"
+                    onClick={handleDrawerToggle}
+                    sx={{ mr: 2, display: { sm: 'none' } }}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                  <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
+                    {title}
+                  </Typography>
+                  <CartIcon />
+                </Toolbar>
+              </AppBar>
 
-            <Sidebar 
-              mobileOpen={mobileOpen}
-              onDrawerToggle={handleDrawerToggle}
-              onExpandChange={handleSidebarExpandChange}
-            />
+              <Sidebar 
+                mobileOpen={mobileOpen}
+                onDrawerToggle={handleDrawerToggle}
+                onExpandChange={handleSidebarExpandChange}
+              />
 
-            <Box
-              component="main"
-              className="main-content"
-              sx={{ 
-                width: { sm: `calc(100% - ${currentWidth}px)` },
-              }}
-            >
-              <Routes>
-                <Route path="/inventory" element={<Inventory />} />
-                <Route path="/categories" element={<Category />} />
-                <Route path="/orders" element={<Orders />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/" element={<Navigate to="/inventory" replace />} />
-              </Routes>
+              <Box
+                component="main"
+                className="main-content"
+                sx={{ 
+                  width: { sm: `calc(100% - ${currentWidth}px)` },
+                }}
+              >
+                <Routes>
+                  <Route path="/inventory" element={<Inventory />} />
+                  <Route path="/categories" element={<Category />} />
+                  <Route path="/orders" element={<Orders />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/" element={<Navigate to="/inventory" replace />} />
+                </Routes>
+              </Box>
             </Box>
-          </Box>
-        </BrowserRouter>
-      </ThemeProvider>
-    </CartProvider>
+          </BrowserRouter>
+        </ThemeProvider>
+      </CartProvider>
+    </NotificationProvider>
   );
 };
 
