@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import usePersistedState from '../hooks/usePersistedState';
 
 interface CartContextType {
   cartItemsCount: number;
@@ -22,7 +23,7 @@ interface CartProviderProps {
 }
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-  const [cartItemsCount, setCartItemsCount] = useState(0);
+  const [cartItemsCount, setCartItemsCount] = usePersistedState('cartItemsCount', 0);
 
   const addToCart = () => {
     setCartItemsCount(prev => prev + 1);
