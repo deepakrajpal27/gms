@@ -11,8 +11,6 @@ import {
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import Inventory from './pages/Inventory';
-import Category from './pages/Category';
-import Orders from './pages/Orders';
 import Sidebar, { DRAWER_WIDTH, COLLAPSED_DRAWER_WIDTH } from './components/Sidebar';
 import CartIcon from './components/CartIcon';
 import { CartProvider } from './context/CartContext';
@@ -60,7 +58,6 @@ const App: React.FC<AppProps> = ({ title = 'Grocery Management System' }) => {
   };
 
   const currentWidth = sidebarExpanded ? DRAWER_WIDTH : COLLAPSED_DRAWER_WIDTH;
-  console.log(`Current sidebar width: ${currentWidth}px`);
   return (
     <NotificationProvider>
       <CartProvider>
@@ -107,8 +104,6 @@ const App: React.FC<AppProps> = ({ title = 'Grocery Management System' }) => {
               >
                 <Routes>
                   <Route path="/inventory" element={<Inventory />} />
-                  <Route path="/categories" element={<Category />} />
-                  <Route path="/orders" element={<Orders />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/" element={<Navigate to="/inventory" replace />} />
                 </Routes>

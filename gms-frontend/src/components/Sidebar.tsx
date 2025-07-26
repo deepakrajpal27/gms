@@ -29,8 +29,8 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { path: '/inventory', label: 'Inventory', icon: <InventoryIcon /> },
-  { path: '/categories', label: 'Categories', icon: <CategoryIcon /> },
-  { path: '/orders', label: 'Orders', icon: <ShoppingCartIcon /> },
+//   { path: '/categories', label: 'Categories', icon: <CategoryIcon /> },
+//   { path: '/orders', label: 'Orders', icon: <ShoppingCartIcon /> },
 ];
 
 interface SidebarProps {
