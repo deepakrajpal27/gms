@@ -115,5 +115,5 @@ npm start
 
 ## Author
 
-- [Deepak]
-- [deepakrajpal27@gmail.com]
+- Deepak Heman Das
+- deepakrajpal27@gmail.com
