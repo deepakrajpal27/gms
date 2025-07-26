@@ -3,27 +3,29 @@ import { Typography, Button } from '@mui/material';
 import PageContainer from '../components/PageContainer';
 import { useCart } from '../context/CartContext';
 
-const Inventory: React.FC = () => {
-  const { addToCart } = useCart();
+const Cart: React.FC = () => {
+  const { cartItemsCount, clearCart } = useCart();
 
   return (
     <PageContainer>
       <Typography variant="h4" component="h1" className="page-title">
-        Inventory
+        Shopping Cart
       </Typography>
       <Typography variant="body1" className="page-content">
-        Track your inventory levels here.
+        You have {cartItemsCount} items in your cart.
       </Typography>
-      <Button 
-        variant="contained" 
-        color="primary" 
-        onClick={addToCart}
-        sx={{ mt: 2 }}
-      >
-        Add Item to Cart
-      </Button>
+      {cartItemsCount > 0 && (
+        <Button 
+          variant="contained" 
+          color="secondary" 
+          onClick={clearCart}
+          sx={{ mt: 2 }}
+        >
+          Clear Cart
+        </Button>
+      )}
     </PageContainer>
   );
 };
 
-export default Inventory;
+export default Cart;
