@@ -2,22 +2,9 @@ import React from 'react';
 import { Typography, Button } from '@mui/material';
 import PageContainer from '../components/PageContainer';
 import { useCart } from '../context/CartContext';
-import { useNotification } from '../context/NotificationContext';
-import { createInventoryItem } from '../api/inventoryApi';
 
 const Inventory: React.FC = () => {
   const { addToCart } = useCart();
-  const { showNotification } = useNotification();
-
-  const handleAddItem = async () => {
-    try {
-      // Example item, replace with real form data in production
-      await createInventoryItem({ name: 'Sample', category: 'General', quantity: 1, price: 10 });
-      showNotification('Item added successfully!', 'success');
-    } catch (error: any) {
-      showNotification(error?.response?.data?.message || 'Failed to add item', 'error');
-    }
-  };
 
   return (
     <PageContainer>
@@ -27,14 +14,6 @@ const Inventory: React.FC = () => {
       <Typography variant="body1" className="page-content">
         Track your inventory levels here.
       </Typography>
-      <Button 
-        variant="contained" 
-        color="primary" 
-        onClick={handleAddItem}
-        sx={{ mt: 2 }}
-      >
-        Add Item to Inventory (Demo)
-      </Button>
       <Button 
         variant="contained" 
         color="secondary" 
